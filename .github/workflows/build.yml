@@ -1,0 +1,15 @@
+name: Test
+on: [push]     # いつCIが動き出すか
+
+jobs:
+  on_build_actions:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2    # 実行環境
+      - name: Install dependencies
+        run: |                      # パッケージインストール
+          cd $GITHUB_WORKSPACE
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+      - name: Run Tests
+        run: python -m unittest tests/*.py  # テストの実行
