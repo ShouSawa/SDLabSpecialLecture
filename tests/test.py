@@ -14,7 +14,7 @@ class TestCSVPrinter(unittest.TestCase):
         line = printer.read()
         for row in line: # 行ごとに分解
             print(row)
-            self.assertEqual(2, len(row))
+            self.assertEqual(4, len(row))
 
     def test_case3(self):
         with self.assertRaises(FileNotFoundError):
